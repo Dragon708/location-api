@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/[controller]")]
 public class AutocompleteController : ControllerBase
 {
     private readonly LocationIQService _locationService;
@@ -9,9 +8,12 @@ public class AutocompleteController : ControllerBase
     public AutocompleteController(LocationIQService locationService)
     {
         _locationService = locationService;
+        
+        
     }
 
     [HttpGet]
+    [Route("api/autocomplete")]
     public async Task<IActionResult> Get([FromQuery] string query)
     {
         if (string.IsNullOrWhiteSpace(query))

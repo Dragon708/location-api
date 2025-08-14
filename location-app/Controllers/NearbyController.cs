@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
-[Route("api/[controller]")]
 public class NearbyController : ControllerBase
 {
     private readonly LocationIQService _locationService;
@@ -12,6 +11,7 @@ public class NearbyController : ControllerBase
     }
 
     [HttpGet]
+    [Route("api/places")]
     public async Task<IActionResult> Get(
         [FromQuery] double lat,
         [FromQuery] double lon,
